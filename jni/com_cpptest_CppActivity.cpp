@@ -2,6 +2,11 @@
 #include <jni.h>
 #include "com_cpptest_CppActivity.h"
 #include <android/log.h>
+#include <iostream>
+#include <queue>
+
+using std::vector;
+using std::queue;
 
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "CPP-TEST", __VA_ARGS__))
 
@@ -12,6 +17,15 @@
  */
 JNIEXPORT void JNICALL Java_com_cpptest_CppActivity_codeTest (JNIEnv *env)
 {
+
+	queue<int> x;
 	LOGI("GREETINGS FROM THE NATIVE SIDE!");
+	x.push(1);
+
+	LOGI("Result: %d",x.front());
+	x.pop();
+
+
+
 }
 
