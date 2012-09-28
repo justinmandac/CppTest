@@ -5,10 +5,18 @@
 #include <iostream>
 #include <queue>
 
-using std::vector;
 using std::queue;
 
+
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "CPP-TEST", __VA_ARGS__))
+#define SAMPLES 80
+
+struct inputBuffer {
+  long 	 timestamp;
+  double inX[SAMPLES];
+  double inY[SAMPLES];
+  double inZ[SAMPLES];
+};
 
 /*
  * Class:     com_cpptest_CppActivity
@@ -17,15 +25,12 @@ using std::queue;
  */
 JNIEXPORT void JNICALL Java_com_cpptest_CppActivity_codeTest (JNIEnv *env)
 {
-
+	queue<struct inputBuffer> dataBuffer;
 	queue<int> x;
 	LOGI("GREETINGS FROM THE NATIVE SIDE!");
 	x.push(1);
-
-	LOGI("Result: %d",x.front());
+	LOGI("Value: %d",x.front());
 	x.pop();
-
-
 
 }
 
